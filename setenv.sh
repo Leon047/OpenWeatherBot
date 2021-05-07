@@ -1,4 +1,4 @@
-# ..
+# ... 
 
 # bot api key
 export BOT_TOKEN='1726187718:AAFi8xzAyjkzvrN2gIK7AMsYawmHxQQH5MM'
