@@ -24,12 +24,12 @@ class OpenWeather(StaticData):
         response = requests.get(api_url)
         self.json_data.update(response.json())
 
-    def main_response(self, name) -> list:
+    def main_request(self, name) -> list:
         """docstring for clean_data"""
         self.get_request(name)
 
         if self.json_data['cod'] == '404':
-            return self.json_data['message']
+            return self.error_msg()
         else:
             return self.weather()
 
@@ -37,34 +37,28 @@ class OpenWeather(StaticData):
         """docstring for weather"""
         icon = self.json_data['weather'][0]['icon']
         img = self.take_img(f'{icon}.png')
-
         name = self.json_data['name']
         tsmp = self.json_data['main']['temp']
         description = self.json_data['weather'][0]['description']
-
         items = f'{name}\ntemp: {tsmp}\n{description}'
         return img, items
 
-    def main(self) -> dict:
-        """docstring for main"""
-        return self.json_data['main']
+    def error_msg(self):
+        img = self.take_img('error_404.jpg')
+        msg = self.json_data['message']
+        return img, msg
 
-    def visibility(self) -> dict:
-        """docstring for visibility"""
-        return self.json_data['visibility']
-
-    def clouds(self) -> dict:
-        """docstring for clouds"""
-        return self.json_data['clouds']
-
-    def sys(self) -> dict:
-        """docstring for sys"""
-        return self.json_data['sys']
-
-    def coord(self) -> dict:
-        """docstring for coord"""
-        return self.json_data['coord']
+    def weather_item(self, arg) -> str:
+        json_items = []
+        for key, value in self.json_data[arg].items():
+            json_items.append(f"* {key}: {value}\n")
+        mkstr = ''.join(json_items)
+        return mkstr
 
 if __name__=='__main__':
-    M = OpenWeather()
-    M.take_response('Tbilisi')
+    W = OpenWeather()
+    print(W.main_request('Tbilisi'))
+    print(W.weather_items('main'))
+    print(W.weather_items('clouds'))
+    print(W.weather_items('sys'))
+    print(W.weather_items('coord'))
