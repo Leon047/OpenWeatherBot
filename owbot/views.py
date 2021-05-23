@@ -5,15 +5,14 @@ import requests
 from utils import StaticData
 
 API_KEY = os.getenv('OPEN_WEATHER_KEY')
-static = os.path.abspath('static/img/')
 
 
 class OpenWeather(StaticData):
 
-    def __init__(self) -> None:
+    def __init__(self):
         self.json_data = {}
 
-    def get_request(self, name) -> None:
+    def get_request(self, name):
         """
         Main request to OpenWeather Api.
         """
@@ -35,18 +34,18 @@ class OpenWeather(StaticData):
 
     def weather(self) -> list:
         """docstring for weather"""
-        icon = self.json_data['weather'][0]['icon']
-        img = self.take_img(f'{icon}.png')
+        get_icon = self.json_data['weather'][0]['icon']
+        icon = self.take_img(f'{get_icon}.png')
         name = self.json_data['name']
         tsmp = self.json_data['main']['temp']
         description = self.json_data['weather'][0]['description']
         items = f'{name}\ntemp: {tsmp}\n{description}'
-        return img, items
+        return icon, items
 
     def error_msg(self):
-        img = self.take_img('error_404.jpg')
+        icon = self.take_img('error_404.jpg')
         msg = self.json_data['message']
-        return img, msg
+        return icon, msg
 
     def weather_item(self, arg) -> str:
         json_items = []

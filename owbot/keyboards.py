@@ -1,12 +1,17 @@
 from aiogram.types import ReplyKeyboardRemove, \
-        ReplyKeyboardMarkup, KeyboardButton, \
-        InlineKeyboardMarkup, InlineKeyboardButton
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
 
 # ...
-button_help = KeyboardButton('London')
-hi_btn = ReplyKeyboardMarkup(
-    resize_keyboard=True, one_time_keyboard=True
-).add(button_help)
+washington = KeyboardButton('Washington')
+london = KeyboardButton('London')
+kiev = KeyboardButton('Kyiv')
+
+# ...
+help_btn = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(
+    washington, london, kiev
+).add(KeyboardButton('My location 🗺️', request_location=True)
+)
 
 # ...
 button_main = KeyboardButton('/main')
@@ -15,6 +20,6 @@ button_sys = KeyboardButton('/sys')
 button_coord = KeyboardButton('/coord')
 
 # ...
-button_weather_items = ReplyKeyboardMarkup(resize_keyboard=True).row(
+weather_items_btn = ReplyKeyboardMarkup(resize_keyboard=True).row(
     button_main, button_clouds, button_sys, button_coord
 )

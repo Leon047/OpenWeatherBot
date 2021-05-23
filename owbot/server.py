@@ -10,7 +10,7 @@ from aiogram.utils.markdown import text, bold, italic, code, pre
 from aiogram.types import ParseMode, InputMediaPhoto, ChatActions
 
 from views import OpenWeather
-from keyboards import hi_btn, button_weather_items
+from keyboards import help_btn, weather_items_btn
 
 # token from telegram bot
 API_TOKEN = os.getenv('BOT_TOKEN')
@@ -31,11 +31,7 @@ Api = OpenWeather()
 async def send_welcome(message: types.Message):
     await message.reply('Hi!\nIm OpenWeatherBot.\n'
                         'Enter the name of the city or country.',
-                        reply_markup=hi_btn)
-
-@dp.message_handler(commands=['start'])
-async def send_welcome(message: types.Message):
-    await message.reply(reply_markup=button_help)
+                        reply_markup=help_btn)
 
 @dp.message_handler(commands=['main'])
 async def send_welcome(message: types.Message):
@@ -57,7 +53,7 @@ async def send_welcome(message: types.Message):
 async def weather_main(message: types.Message):
     response = Api.main_request(message.text)
     await bot.send_photo(message.from_user.id, response[0], response[1],
-            disable_notification=True, reply_markup=button_weather_items
+        disable_notification=True, reply_markup=weather_items_btn
     )
 
 if __name__ == '__main__':

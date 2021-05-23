@@ -1,6 +1,6 @@
 import os
 
-STATIC = 'static'
+STATIC = 'owbot/static'
 
 
 class StaticData:
