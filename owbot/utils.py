@@ -4,7 +4,9 @@ STATIC = 'owbot/static'
 
 
 class StaticData:
-
+    """
+    Method for working with static data (img).
+    """
     def open_file(self, filetype, filename):
         filepath = os.path.join(STATIC, filetype, filename)
         with open(filepath, 'rb') as img:

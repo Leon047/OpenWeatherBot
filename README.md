@@ -1,9 +1,12 @@
 # OpenWeatherBot
 ## Demo Telegram Bot
 
+## Using api
+* https://openweathermap.org/api
+
 ## Used by
 * Python 3.9.4
-* Aiogram
+* Aiogram 2.12.1
 * Docker
 
 ## Install Docker 
