@@ -30,7 +30,7 @@ class OpenWeather(StaticData):
         name = self.json_data['name']
         tsmp = self.json_data['main']['temp']
         description = self.json_data['weather'][0]['description']
-        items = f'{name}\n* temp: {tsmp}\n* {description}'
+        items = f'{name}\n* temp: {tsmp}°f\n* {description}'
         return icon, items
 
     def weather_item(self, arg) -> str:
@@ -53,11 +53,3 @@ class OpenWeather(StaticData):
             return self.error_msg()
         else:
             return self.weather()
-
-if __name__=='__main__':
-    W = OpenWeather()
-    print(W.main_request('Tbilisi'))
-    print(W.weather_items('main'))
-    print(W.weather_items('clouds'))
-    print(W.weather_items('sys'))
-    print(W.weather_items('coord'))

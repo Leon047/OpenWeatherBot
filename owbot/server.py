@@ -5,7 +5,7 @@ import logging
 from aiogram import Bot, types
 from aiogram.utils import executor
 from aiogram.dispatcher import Dispatcher
-from aiogram.utils.markdown import text, bold, italic, code, pre
+from aiogram.utils.markdown import text
 
 from views import OpenWeather
 from keyboards import help_btn, weather_items_btn
@@ -14,10 +14,10 @@ from keyboards import help_btn, weather_items_btn
 API_TOKEN = os.getenv('BOT_TOKEN')
 
 # Configure logging
-# logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 # Configure logging debug mod
-logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
+# logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
@@ -30,7 +30,8 @@ Api = OpenWeather()
 @dp.message_handler(commands=['help'])
 async def help(message: types.Message):
     """Help request handler"""
-    await message.reply('Hi!\nIm OpenWeatherBot.\n'
+    await message.reply('Hi!\nIm OpenWeather bot.\n'
+                        'Get the weather forecast.\n'
                         'Enter the name of the city or country.\n'
                         'Or select the suggested options.',
                         reply_markup=help_btn)
