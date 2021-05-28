@@ -26,6 +26,14 @@ dp = Dispatcher(bot)
 # An instance of the class for OpenWeather api.
 Api = OpenWeather()
 
+@dp.message_handler(commands=['start'])
+async def send_welcome(message: types.Message):
+    await message.reply(
+        'Hi! 😁\n'
+        'Im OpenWeather bot\n'
+        'Enter the name of the city or country.\n'
+        'And get the weather forecast.'
+    )
 
 @dp.message_handler(commands=['help'])
 async def help(message: types.Message):
