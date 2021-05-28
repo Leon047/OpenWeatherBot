@@ -46,7 +46,7 @@ class OpenWeather(StaticData):
         error_icon = self.take_img('error_404.jpg')
         error_msg = self.json_data['message']
         error_msg = f'{error_msg}\nEnter: /help'
-        return error_icon, error_msg
+        return '404', error_icon, error_msg
 
     def main_request(self, name) -> list:
         self.get_request(name)

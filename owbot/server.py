@@ -70,9 +70,12 @@ async def weather_main(message: types.Message):
     It takes the name of a country or city and returns a weather forecast.
     """
     response = Api.main_request(message.text)
-    await bot.send_photo(message.from_user.id, response[0], response[1],
-        disable_notification=True, reply_markup=weather_items_btn
-    )
+    if response[0] == '404':
+        await bot.send_photo(message.from_user.id, response[1], response[2])
+    else:
+        await bot.send_photo(message.from_user.id, response[0], response[1],
+            disable_notification=True, reply_markup=weather_items_btn
+        )
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
