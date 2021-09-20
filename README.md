@@ -19,3 +19,7 @@
 
 # bot name
 * @BotUserOpenWeatherBotBot
+
+  <p align="center"> 
+    <img src="https://user-images.githubusercontent.com/43421023/133983926-af29c5a3-32f7-42c2-b0a0-5fb91ffa8a6b.png" alt="OpenWeatherBot">
+  </p>
