@@ -9,4 +9,4 @@ ARG OPEN_WEATHER_KEY
 ENV BOT_TOKEN=${BOT_TOKEN}
 ENV OPEN_WEATHER_KEY=${OPEN_WEATHER_KEY}
 EXPOSE 80/tcp
-CMD ["python3.9", "owbot/server.py"]
+CMD ["python3.9", "server.py"]

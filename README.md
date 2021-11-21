@@ -15,7 +15,7 @@
 ## For project deployment:
 * source setenv.sh
 * sudo docker build --no-cache --build-arg BOT_TOKEN=$BOT_TOKEN --build-arg OPEN_WEATHER_KEY=$OPEN_WEATHER_KEY -t owbot .
-* docker run -i -t -p 80:80 owbot
+* sudo docker run -i -t -p 80:80 owbot
 
 # bot name
 * @BotUserOpenWeatherBotBot

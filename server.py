@@ -7,7 +7,7 @@ from aiogram.utils import executor
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.markdown import text
 
-from views import OpenWeather
+from models import OpenWeather
 from keyboards import help_btn, weather_items_btn
 
 # token from telegram bot
