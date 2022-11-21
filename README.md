@@ -5,7 +5,7 @@
 
 ## Description 
 
-> Telegram bot that allows you to find out the weather of a certain location, the name of which will be entered.
+***The Telegram bot allows you to receive meteorological location data entered by the user.***
 
 Bot name:
 ```
@@ -19,8 +19,8 @@ Bot name:
 
 ## Used 
 
-[![Python](https://img.shields.io/static/v1?label=Python&message=v3.9.4&color=007DD1)](https://www.python.org/downloads/release/python-394/)
-[![Aiogram](https://img.shields.io/static/v1?label=Aiogram&message=v2.12.1&color=007DD1)](https://docs.aiogram.dev/en/latest/)
+[![Python](https://img.shields.io/static/v1?label=Python&message=v3.9.4&color=00CC11)](https://www.python.org/downloads/release/python-394/)
+[![Aiogram](https://img.shields.io/static/v1?label=Aiogram&message=v2.12.1&color=D75627)](https://docs.aiogram.dev/en/latest/)
 
 API:
 - [Open Weather API](https://openweathermap.org/api)
@@ -32,13 +32,15 @@ API:
 
 For project deployment:
 
+Add Keys:
 ```sh
 source setenv.sh
 ```
+Docker Build:
 ```sh
 docker build --no-cache --build-arg BOT_TOKEN=$BOT_TOKEN --build-arg OPEN_WEATHER_KEY=$OPEN_WEATHER_KEY -t owbot .
 ```
+Docker Run:
 ```sh
 docker run -i -t -p 80:80 owbot
-'''
-
+```
