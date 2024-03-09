@@ -15,15 +15,6 @@ Key Features:
 
 * Interactive Interaction: The bot allows interaction with weather data and provides additional options for more detailed inquiries.
 
-Bot name:
-<pre>
-@BotUserOpenWeatherBotBot
-</pre>
-
-<p align="center"> 
-  <img src="https://user-images.githubusercontent.com/43421023/133983926-af29c5a3-32f7-42c2-b0a0-5fb91ffa8a6b.png" alt="OpenWeatherBot">
-</p>
-
 
 ## Used 
 <div align='center'>
@@ -44,11 +35,17 @@ Clone the repository:
 git clone https://github.com/Leon047/OpenWeatherBot.git
 ```
 
-## Using venv 
 
-Install dependencies:
+To add to the .env file.:
+
+BOT_TOKEN
 ```bash
-pip install --upgrade -r requirements.txt
+https://t.me/BotFather
+```
+
+OPEN_WEATHER_KEY
+```bash
+https://openweathermap.org/
 ```
 
 Set environment variables:
@@ -56,10 +53,19 @@ Set environment variables:
 source .env
 ```
 
+
+## Using venv 
+
+Install dependencies:
+```bash
+pip install --upgrade -r requirements.txt
+```
+
 Run the bot:
 ```bash
 python run.py
 ```
+
 
 ## Using Docker
 
